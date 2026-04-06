@@ -1,44 +1,55 @@
-import Vector from './vector';
-import DoublyLinkedList from './doubly-linked-list';
+import LinkedQueue from './linked-queue';
+import VectorStack from './vector-stack';
 
-console.log('--- Level 1: Vector Operations ---');
+const decimalToBinary = (num: number): string => Math.round(num).toString(2);
 
-const myVector = new Vector([10, 5, 8, 3, 12]);
-console.log('Initial Vector:', myVector.value);
+console.log('--- Task 1: Stack Based on Vector ---');
 
-myVector.delete(5);
-console.log("Vector after deleting '5':", myVector.value);
+const stackDemo = new VectorStack<string>(['101', '111']);
+console.log('Initial stack:', stackDemo.toString());
 
-console.log('\n--- Level 2: Doubly Linked List Operations ---');
+stackDemo.push('1001');
+console.log("Stack after push('1001'):", stackDemo.toString());
 
-const myList = new DoublyLinkedList();
-myList.insert('Apple');
-myList.insert('Banana');
-myList.insert('Cherry');
-console.log('Initial List:', myList.toString());
+const poppedValue = stackDemo.pop();
+console.log('Popped value:', poppedValue);
+console.log('Stack after pop():', stackDemo.toString());
 
-myList.delete('Banana');
-console.log("List after deleting 'Banana':", myList.toString());
+console.log('\n--- Task 2: Queue Based on Linked List ---');
 
-console.log('\n--- Level 3: Option 5 Execution ---');
+const queueDemo = new LinkedQueue<number>([5, 10, 15]);
+console.log('Initial queue:', queueDemo.toString());
 
-const sourceVector = new Vector([14, 7, 2, 9, 20, 6, 1]);
-const targetList = new DoublyLinkedList();
+queueDemo.enqueue(20);
+console.log('Queue after enqueue(20):', queueDemo.toString());
 
-console.log('Source Vector before transfer:', sourceVector.value);
+const dequeuedValue = queueDemo.dequeue();
+console.log('Dequeued value:', dequeuedValue);
+console.log('Queue after dequeue():', queueDemo.toString());
 
-const elementsToProcess = [...sourceVector.value];
+console.log('\n--- Task 3: Variant 13 ---');
 
-elementsToProcess.forEach((num) => {
-  if (num % 2 === 0) {
-    targetList.insertSorted(num);
+const sourceQueue = new LinkedQueue<number>([10.2, -5, 7.8, -11.4, 3.01]);
+const binaryStack = new VectorStack<string>();
 
-    sourceVector.delete(num);
+console.log('Queue before processing:', sourceQueue.toString());
+console.log('Stack before processing:', binaryStack.toString());
+
+while (!sourceQueue.isEmpty()) {
+  const item = sourceQueue.dequeue();
+
+  if (item === undefined) {
+    break;
   }
-});
 
-console.log('Source Vector after (only odd numbers left):', sourceVector.value);
-console.log(
-  'Target List after (even numbers, sorted as strings):',
-  targetList.toString(),
-);
+  if (item > 0) {
+    const binaryValue = decimalToBinary(item);
+    binaryStack.push(binaryValue);
+    console.log(`${item} -> ${binaryValue} pushed to stack`);
+  } else {
+    console.log(`${item} is negative and removed from queue`);
+  }
+}
+
+console.log('Queue after processing:', sourceQueue.toString());
+console.log('Stack after processing:', binaryStack.toString());

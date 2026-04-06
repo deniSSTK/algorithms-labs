@@ -1,0 +1,7 @@
+^ABC^*^XYZ^
+^A^*^B^
+ABC^*^XYZ^
+^ABC^*^xyz^
+^HELLO^*^WORLD^
+^CODE^*^TEST^
+^A1^*^B^

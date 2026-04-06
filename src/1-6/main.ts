@@ -1,5 +1,3 @@
-declare const process: any;
-
 type SizeBenchmarkRow = {
   size: number;
   quickSortBasicNs: number;
@@ -118,7 +116,6 @@ const quickSortIterative = (
     const leftSize = pivotIndex - 1 - low;
     const rightSize = high - (pivotIndex + 1);
 
-    // Push larger segment first to keep stack depth smaller.
     if (leftSize > rightSize) {
       stack.push([low, pivotIndex - 1]);
       stack.push([pivotIndex + 1, high]);

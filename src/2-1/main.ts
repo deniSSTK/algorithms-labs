@@ -1,7 +1,3 @@
-declare const process: {
-  argv: string[];
-};
-
 import HashTable from './hash-table';
 import PolarVector, { createRandomPolarVectors } from './polar-vector';
 

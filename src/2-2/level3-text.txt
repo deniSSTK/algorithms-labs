@@ -1,0 +1,1 @@
+{^ABC^*^test^}!{^CODE^*^***^}!{^A^*^lower-case^}!{ABC^*^test^}!{^ABC^*^TEST^}!{^XYZ^*^hello123^}!{^Q^*^valid-text^}

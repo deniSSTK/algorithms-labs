@@ -84,11 +84,7 @@ const quickSortRecursive = (students: Student[]): Student[] => {
     equal.push(student);
   });
 
-  return [
-    ...quickSortRecursive(left),
-    ...equal,
-    ...quickSortRecursive(right),
-  ];
+  return [...quickSortRecursive(left), ...equal, ...quickSortRecursive(right)];
 };
 
 export const quickSortByCityCode = (students: Student[]): Student[] => {

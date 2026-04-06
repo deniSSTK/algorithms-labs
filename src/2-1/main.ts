@@ -21,7 +21,10 @@ const getNumericArgument = (name: string, defaultValue: number): number => {
   return parsed;
 };
 
-const tableSize = Math.max(1, Math.floor(getNumericArgument('size', DEFAULT_TABLE_SIZE)));
+const tableSize = Math.max(
+  1,
+  Math.floor(getNumericArgument('size', DEFAULT_TABLE_SIZE)),
+);
 const threshold = getNumericArgument('threshold', DEFAULT_THRESHOLD);
 const vectorCount = Math.max(
   1,
@@ -32,10 +35,7 @@ const printHeader = (title: string): void => {
   console.log(`\n${'='.repeat(18)} ${title} ${'='.repeat(18)}`);
 };
 
-const printInsertionLog = (
-  table: HashTable,
-  vectors: PolarVector[],
-): void => {
+const printInsertionLog = (table: HashTable, vectors: PolarVector[]): void => {
   vectors.forEach((vector, index) => {
     const result = table.insert(vector);
     console.log(

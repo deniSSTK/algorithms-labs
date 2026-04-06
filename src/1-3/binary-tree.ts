@@ -101,7 +101,10 @@ export default class BinaryTree {
     this.traverseInOrder(node.right, callback);
   }
 
-  private deleteNode(node: TreeNode | null, studentId: number): TreeNode | null {
+  private deleteNode(
+    node: TreeNode | null,
+    studentId: number,
+  ): TreeNode | null {
     if (!node) {
       return null;
     }

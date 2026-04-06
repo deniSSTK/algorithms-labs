@@ -62,7 +62,9 @@ const createOrderedStudents = (): Student[] => {
     );
   }
 
-  return seededStudents.sort((first, second) => first.cityCode - second.cityCode);
+  return seededStudents.sort(
+    (first, second) => first.cityCode - second.cityCode,
+  );
 };
 
 const printHeader = (title: string): void => {
@@ -74,7 +76,9 @@ const printStudentsTable = (title: string, students: Student[]): void => {
   console.table(students.map((student) => student.toTableRow()));
 };
 
-const sequentialDelete = (students: Student[]): { result: Student[]; deleted: number } => {
+const sequentialDelete = (
+  students: Student[],
+): { result: Student[]; deleted: number } => {
   const result: Student[] = [];
   let deleted = 0;
 
@@ -82,7 +86,7 @@ const sequentialDelete = (students: Student[]): { result: Student[]; deleted: nu
     const shouldDelete =
       student.course === 1 &&
       student.cityCode === TARGET_CITY_CODE &&
-      student.hasPhone === false;
+      !student.hasPhone;
 
     if (shouldDelete) {
       deleted += 1;

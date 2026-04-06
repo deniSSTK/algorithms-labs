@@ -20,7 +20,10 @@ const padCell = (value: string, width: number): string => {
 export default class HashTable {
   private buckets: TableEntry[][];
 
-  constructor(private readonly size: number, private readonly mode: CollisionMode) {
+  constructor(
+    private readonly size: number,
+    private readonly mode: CollisionMode,
+  ) {
     this.buckets = Array.from({ length: this.size }, () => []);
   }
 
@@ -72,9 +75,7 @@ export default class HashTable {
 
   printTable(title: string): void {
     console.log(`\n${title}`);
-    console.log(
-      `${padCell('Index', 12)}| ${padCell('Key (X)', 14)}| Vector`,
-    );
+    console.log(`${padCell('Index', 12)}| ${padCell('Key (X)', 14)}| Vector`);
     console.log('-'.repeat(90));
 
     for (let index = 0; index < this.size; index += 1) {
@@ -88,9 +89,7 @@ export default class HashTable {
       }
 
       if (this.mode === 'separateChaining') {
-        const keys = bucket
-          .map((entry) => entry.key.toFixed(2))
-          .join(' -> ');
+        const keys = bucket.map((entry) => entry.key.toFixed(2)).join(' -> ');
         const vectors = bucket
           .map((entry) => `[${entry.vector.getPrintableDetails()}]`)
           .join(' -> ');

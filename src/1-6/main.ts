@@ -24,7 +24,11 @@ const getTimeNs = (): number => {
   return Number(process.hrtime.bigint());
 };
 
-const swap = (array: number[], firstIndex: number, secondIndex: number): void => {
+const swap = (
+  array: number[],
+  firstIndex: number,
+  secondIndex: number,
+): void => {
   const temp = array[firstIndex];
   array[firstIndex] = array[secondIndex];
   array[secondIndex] = temp;
@@ -137,7 +141,9 @@ const quickSortMedian = (array: number[]): number[] => {
 };
 
 const generateRandomArray = (size: number): number[] => {
-  return Array.from({ length: size }, () => Math.floor(Math.random() * 1_000_000));
+  return Array.from({ length: size }, () =>
+    Math.floor(Math.random() * 1_000_000),
+  );
 };
 
 const generateSortedArray = (size: number): number[] => {
@@ -177,7 +183,8 @@ const benchmarkSortPair = (
 
 const benchmarkSizes = (sizes: number[]): SizeBenchmarkRow[] => {
   return sizes.map((size) => {
-    const runs = size >= 1_000_000 ? 1 : size >= 100_000 ? 3 : size >= 10_000 ? 5 : 20;
+    const runs =
+      size >= 1_000_000 ? 1 : size >= 100_000 ? 3 : size >= 10_000 ? 5 : 20;
     const benchmark = benchmarkSortPair(() => generateRandomArray(size), runs);
 
     return {

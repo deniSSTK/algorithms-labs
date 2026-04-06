@@ -56,10 +56,7 @@ tree.printInOrder('Tree after insertion (in-order traversal):');
 printDivider('Level 2');
 
 const foundStudents = tree.searchByCriterion();
-printMatches(
-  'Students from 4th course with zero scholarship:',
-  foundStudents,
-);
+printMatches('Students from 4th course with zero scholarship:', foundStudents);
 
 printDivider('Level 3');
 

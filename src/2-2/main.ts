@@ -90,9 +90,7 @@ const runLevel2 = (): void => {
 const runLevel3 = (): void => {
   printHeader('Level 3: Transition Table');
   console.log(`Source file: ${level3FilePath}`);
-  console.log(
-    'Separators for file splitting: {, }, !',
-  );
+  console.log('Separators for file splitting: {, }, !');
 
   const words = readWordsForLevel3(level3FilePath);
   const rows = words.map((word) => ({

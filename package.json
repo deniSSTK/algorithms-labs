@@ -12,7 +12,8 @@
     "run:1-5": "tsc && node dist/1-5/main.js",
     "run:1-6": "tsc && node dist/1-6/main.js",
     "run:2-1": "tsc && node dist/2-1/main.js",
-    "run:2-2": "tsc && node dist/2-2/main.js"
+    "run:2-2": "tsc && node dist/2-2/main.js",
+    "run:2-3": "tsc && node dist/2-3/main.js"
   },
   "devDependencies": {
     "@types/node": "^25.5.2",
